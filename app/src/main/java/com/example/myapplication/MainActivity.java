@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //Populating list items
         final List<String> pizzaDetails = new ArrayList<>();
         pizzaDetails.add("One");
         pizzaDetails.add("Two");
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         pizzaDetails.add("Four");
         pizzaDetails.add("Five");
         ListView pizzaDetailsList = findViewById(R.id.pizzaDetails);
+        //Add click event listner for the list items
         AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> pizzaDetailsList, View view, int position, long id) {
@@ -30,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
                 toast.show();
             }
         };
-
+        //Set ArrayAdapter to the list
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,R.layout.list_item,R.id.textView,pizzaDetails);
         pizzaDetailsList.setAdapter(adapter);
         pizzaDetailsList.setOnItemClickListener(itemClickListener);
